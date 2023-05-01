@@ -1,5 +1,6 @@
 package com.spring.restdemo.service.impl;
 
+import com.spring.restdemo.exception.CloudVendorNotFoundException;
 import com.spring.restdemo.model.CloudVendor;
 import com.spring.restdemo.repository.CloudVendorRepository;
 import com.spring.restdemo.service.CloudVendorService;
@@ -35,6 +36,9 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Override
     public CloudVendor getCloudVendor(String cloudVendorId) {
+        if(cloudVendorRepository.findById(cloudVendorId).isEmpty()){
+            throw new CloudVendorNotFoundException("Requested Cloud Vendor does not exist");
+        }
         return cloudVendorRepository.findById(cloudVendorId).get();
     }
 

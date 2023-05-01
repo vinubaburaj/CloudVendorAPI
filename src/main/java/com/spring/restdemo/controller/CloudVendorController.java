@@ -5,7 +5,6 @@ import com.spring.restdemo.service.CloudVendorService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-git
 @RestController
 @RequestMapping("/cloudvendor")
 public class CloudVendorController {
